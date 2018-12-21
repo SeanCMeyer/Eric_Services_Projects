@@ -1,0 +1,40 @@
+[  {
+  "id": "1",
+  "name": "The Brunch Truck",
+  "creator": "Michael Hill",
+  "creator_img": "https://ksr-ugc.imgix.net/assets/023/005/535/0e6c9bcf2e36876517b3a3d3d119d7b4_original.jpeg?ixlib=rb-1.1.0&w=160&h=160&fit=crop&v=1540346449&auto=format&frame=1&q=92&s=c97ccacd1ec2180f11648e890a13667f",
+  "blurb": "A Brunch Food Truck and Catering. With an exciting experience, and exquisite food!",
+  "thumbnail": "https://ksr-ugc.imgix.net/assets/022/991/896/70b562d05dfe5cbd6009fd21b356cce1_original.jpeg?ixlib=rb-1.1.0&crop=faces&w=48&h=27&fit=crop&v=1540265586&auto=format&frame=1&q=92&s=dfc02e51268503273e1d1363b8d348f3",
+  "full_img": "https://ksr-ugc.imgix.net/assets/022/991/896/70b562d05dfe5cbd6009fd21b356cce1_original.jpeg?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=1540265586&auto=format&frame=1&q=92&s=4ee41378b32db6b35b57e8d20120ba57",
+  "location": "Denver, CO",
+  "category": "Food Trucks",
+  "created_at": "THIS WILL BE A createdAt_date",
+  "description": "THIS WILL BE A DESCRIPTION"
+},
+{ 
+  "id": "2",
+  "name": "Mamma's {Food Truck} ..Where Happiness Is Homemade",
+  "creator": "Tanya",
+  "creator_img": "https://ksr-ugc.imgix.net/assets/023/011/459/7f523724347365a1e0a938ac392386db_original.jpg?ixlib=rb-1.1.0&w=160&h=160&fit=crop&v=1540922656&auto=format&frame=1&q=92&s=7da03ec2cbc640fb68f6b95b2074f6a8",
+  "blurb": "❤ 5% of Truck Sales will provide a meal to someone in Need ... The Gift That Keeps On Giving",
+  "thumbnail": "https://ksr-ugc.imgix.net/assets/023/011/776/60c31bc2cebdfd436454c08a9dd23477_original.jpg?ixlib=rb-1.1.0&crop=faces&w=48&h=27&fit=crop&v=1540391052&auto=format&frame=1&q=92&s=2bdd1d3ef3d5674cbc8b525f37d6bee6",
+  "full_img": "https://ksr-ugc.imgix.net/assets/023/011/776/60c31bc2cebdfd436454c08a9dd23477_original.jpg?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=1540391052&auto=format&frame=1&q=92&s=2b9d8d8dc4182794f70ee68e239cf8c9",
+  "location": "Providence, RI",
+  "category": "Food Trucks",
+  "created_at": "THIS WILL BE A createdAt_date",
+  "description": "THIS WILL BE A DESCRIPTION"
+},
+{
+  "id": "3",
+  "name": "FIT FOOD",
+  "creator": "Oleksandr Kramar",
+  "creator_img": "https://ksr-ugc.imgix.net/assets/023/205/359/44f3cb84237be10f91754faafa6a047e_original.jpg?ixlib=rb-1.1.0&w=160&h=160&fit=crop&v=1541791495&auto=format&frame=1&q=92&s=717ccfc21d0f0d354054a2553a6fe508",
+  "blurb": "The project of creating a company for the production of healthy food and its delivery to consumers.",
+  "thumbnail": "https://ksr-ugc.imgix.net/assets/023/206/128/cca7aa74f5908876ecbeddd943de8323_original.png?ixlib=rb-1.1.0&crop=faces&w=48&h=27&fit=crop&v=1541843186&auto=format&frame=1&q=92&s=d410f78f350293ec1fad1203659829c3",
+  "full_img": "https://ksr-ugc.imgix.net/assets/023/206/128/cca7aa74f5908876ecbeddd943de8323_original.png?ixlib=rb-1.1.0&crop=faces&w=560&h=315&fit=crop&v=1541843186&auto=format&frame=1&q=92&s=6260535e6cbb6ba7600daf382630fa03",
+  "location": "Italia, Italy",
+  "category": "Food Trucks",
+  "created_at": "THIS WILL BE A createdAt_date",
+  "description": "THIS WILL BE A DESCRIPTION"
+}
+]

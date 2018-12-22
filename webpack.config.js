@@ -2,7 +2,7 @@ module.exports = {
   entry: __dirname + '/client/src/index.js',
   module: {
     rules: [
-      { 
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -12,9 +12,21 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.css$/,
+        loader: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          }
+        ]
+      }
     ]
   },
-   output: {
+  output: {
     filename: 'bundle.js',
     path: __dirname + '/client/dist'
   }

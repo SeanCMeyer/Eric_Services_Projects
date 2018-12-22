@@ -3,11 +3,11 @@ import React from 'react'
 
 
 const ProjectView = (props) =>  {
-  const styleView = {
-    border: '1.5px solid blue',
-    borderRadius: '4px',
-    margin: '5px', 
-  }
+  // const styleView = {
+  //   border: '1.5px solid blue',
+  //   borderRadius: '4px',
+  //   margin: '5px', 
+  // }
 
   const headerStyle = {
     border: '1.5px solid purple',
@@ -30,9 +30,9 @@ const ProjectView = (props) =>  {
   }
 
   return (
-    <div className="ProjectView" style={styleView}>
+    <div className="ProjectView">
       <div className="CreatorInfoDisplay" style={creatorBlockStyle}>
-          <img src={props.currentProject.creator_img} />
+          <img src={props.currentProject.creator_img} alt="https://cdn2-www.dogtime.com/assets/uploads/gallery/samoyed-dogs-and-puppies/samoyed-dogs-puppies-1.jpg"/>
           <div>
             <span>By {props.currentProject.creator}</span>
           </div>

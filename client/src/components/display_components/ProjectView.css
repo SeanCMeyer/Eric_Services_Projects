@@ -1,0 +1,6 @@
+.ProjectView {
+    border: 1.5px solid purple;
+    border-radius: 4px;
+    margin: 5px;
+    display: inline-block;
+}

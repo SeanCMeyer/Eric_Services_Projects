@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser'); 
 const morgan = require('morgan'); 
 const path = require('path'); 
-const db = require('../database/knex.js');
+const knex = require('../database/knex.js');
 require('dotenv').config();
 const port = process.env.PORT || 3002;
 
@@ -19,24 +19,24 @@ app.use(morgan('dev'));
 // ROUTES
 // GET all projects from database 
 app.get('/projects', (req, res) => {
-  console.log('PROCESS VARIABLES', process.env.PSQL_PASSWORD)
-  db.select()
+  knex.select()
     .from('projects')
     .then(listOfProjects => {
-      console.log('HERE IS A LIST OF OUR PROJECTS!!!', listOfProjects); 
       return listOfProjects;
     })
     .then(listOfProjects => {
       res.status(200).json(listOfProjects);
     })
     .catch((err) => {
-      console.log('Errror', err)
-      res.status(400).send('Error getting projects from server');
+      res.status(403).send('Error retrieving projects');
     })
 }); 
 // GET one project route from external servers
 app.get('/projects/:id', (req, res) => {
+
   
+  console.log('CURRENT PARAMS stuff ', req.params); 
+  res.status(200).send(req.params.id)
 }); 
 
 

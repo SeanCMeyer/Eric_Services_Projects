@@ -3,7 +3,7 @@ import ProjectView from './display_components/ProjectView.js';
 import sampleData from './sample/sampleData.json';
 import axios from 'axios';
 
-class App extends Component {
+class Project extends Component {
   constructor(props) { 
     super(props); 
     this.state = {
@@ -42,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App; 
+export default Project; 

@@ -1,33 +1,26 @@
 module.exports = {
-  entry: __dirname + '/client/src/index.js',
+  context: __dirname + "/client/src",
+  entry: "./index.js",
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-react', '@babel/preset-env']
+            presets: ["@babel/preset-react", "@babel/preset-env"]
           }
         }
       },
       {
         test: /\.css$/,
-        loader: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-            },
-          }
-        ]
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
   output: {
-    filename: 'bundle.js',
-    path: __dirname + '/client/dist'
+    filename: "bundle.js",
+    path: __dirname + "/public"
   }
 };

@@ -42,7 +42,7 @@ app.get("/projects/:id", (req, res) => {
     .then(dbResult => {
       console.log("HELLO PROJECTS", dbResult);
       res.status(200);
-      res.json(dbResult);
+      res.json(dbResult[0]);
     })
     .catch(err => {
       console.log("Error retrieving specific project in project view server");

@@ -18,15 +18,30 @@ class Project extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3000/projects")
-      .then(projects => {
+      .get("http://localhost:3000/projects/" + this.props.id)
+      .then(project => {
         this.setState({
-          projectList: projects.data
+          currentProject: project.data
         });
       })
       .catch(error => {
         console.log("Error retrieving projects");
       });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.id !== prevProps.id) {
+      axios
+        .get("http://localhost:3000/projects/" + this.props.id)
+        .then(project => {
+          this.setState({
+            currentProject: project.data
+          });
+        })
+        .catch(error => {
+          console.log("Error retrieving projects");
+        });
+    }
   }
 
   render() {

@@ -45,7 +45,10 @@ app.get("/projects/:id", (req, res) => {
       res.json(dbResult[0]);
     })
     .catch(err => {
-      console.log("Error retrieving specific project in project view server");
+      console.log(
+        "Error retrieving specific project in project view server of this id:",
+        req.params.id
+      );
       res.status(500).end();
     });
 });

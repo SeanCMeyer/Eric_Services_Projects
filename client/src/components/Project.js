@@ -13,7 +13,7 @@ class Project extends Component {
   }
 
   componentDidMount() {
-    // this.props.id is not passed down and undefined causes 500 internal error
+    // if this.props.id is not passed down and undefined causes 500 internal error
     axios
       .get(
         "http://" + window.location.hostname + ":3000/projects/" + this.props.id
@@ -52,8 +52,6 @@ class Project extends Component {
     // console.log("AFTER RENDER", this.state.projectList[1]);
     return (
       <div>
-        <h1>Project View Services</h1>
-        <h2>Testing connection in progress</h2>
         <ProjectView currentProject={this.state.currentProject} />
       </div>
     );

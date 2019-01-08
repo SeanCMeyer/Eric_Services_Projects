@@ -60,15 +60,22 @@ const ProjectView = props => {
         <div className="full-project-image">
           <img src={props.currentProject.full_img} />
         </div>
-        <Grid item direction="row" justify="flex-start" alignItems="flex-start">
-          <div className="full-project-caption">
-            <Typography component="body1" variant="body1">
-              {props.currentProject.category}
-            </Typography>
-            <Typography component="body1" variant="body1" color="slategray">
-              {props.currentProject.location}
-            </Typography>
-          </div>
+        <Grid container>
+          <Grid
+            item
+            direction="row"
+            justify="flex-start"
+            alignItems="flex-start"
+          >
+            <div className="full-project-caption">
+              <Typography component="body1" variant="body1">
+                {props.currentProject.category}
+              </Typography>
+              <Typography component="body1" variant="body1">
+                {props.currentProject.location}
+              </Typography>
+            </div>
+          </Grid>
         </Grid>
       </div>
     </div>

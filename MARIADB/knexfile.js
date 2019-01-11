@@ -1,42 +1,56 @@
 require("dotenv").config();
 
+console.log(process.env);
+
 module.exports = {
   development: {
     client: "mysql",
     connection: {
-      filename: "./Maria10mil-Controler.js"
+      host: MDB_URL,
+      database: MDB_DBNAME,
+      user: MDB_USERNAME,
+      password: MDB_PASS
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: "projects"
     }
   },
 
   staging: {
     client: "mysql",
     connection: {
-      database: process.env.MDB_NAME,
-      user: process.env.MDB_USERNAME,
-      password: process.env.PASS
+      host: MDB_URL,
+      database: MDB_DBNAME,
+      user: MDB_USERNAME,
+      password: MDB_PASS
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: "knex_migrations"
+      tableName: "projects"
     }
   },
 
   production: {
     client: "mysql",
     connection: {
-      database: process.env.MDB_NAME,
-      user: process.env.MDB_USERNAME,
-      password: process.env.PASS
+      host: MDB_URL,
+      database: MDB_DBNAME,
+      user: MDB_USERNAME,
+      password: MDB_PASS
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: "knex_migrations"
+      tableName: "projects"
     }
   }
 };

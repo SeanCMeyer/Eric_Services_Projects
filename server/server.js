@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const path = require("path");
-const knex = require("../database/knex.js");
+// const knex = require("../database/knex.js");
 const cors = require("cors");
 require("dotenv").config();
 

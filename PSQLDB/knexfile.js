@@ -3,18 +3,15 @@ module.exports = {
   development: {
     client: "pg",
     connection: {
-      host: process.env.DEV_URL,
-      port: process.env.DEV_PG_DBPORT,
-      database: process.env.DEV_DBNAME,
-      user: process.env.DEV_USERNAME,
-      password: process.env.DEV_PASS
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host: "localhost",
+      port: 5433,
+      database: "better_jump_10mil",
+      user: "master",
+      password: "passofdoom"
     },
     migrations: {
-      tableName: "projects"
+      directory: "./migrations",
+      tableName: "migrations"
     }
   },
 
@@ -22,6 +19,7 @@ module.exports = {
     client: "pg",
     connection: {
       host: process.env.DEV_URL,
+      port: 5433,
       database: process.env.DEV_DBNAME,
       user: process.env.DEV_USERNAME,
       password: process.env.DEV_PASS
@@ -31,7 +29,8 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: "projects"
+      directory: "./migrations",
+      tableName: "migrations"
     }
   },
 
@@ -39,7 +38,7 @@ module.exports = {
     client: "pg",
     connection: {
       host: process.env.DEV_URL,
-      port: process.env.DEV_PG_DBPORT,
+      port: 5433,
       database: process.env.DEV_DBNAME,
       user: process.env.DEV_USERNAME,
       password: process.env.DEV_PASS
@@ -49,7 +48,8 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: "projects"
+      directory: "./migrations",
+      tableName: "migrations"
     }
   }
 };

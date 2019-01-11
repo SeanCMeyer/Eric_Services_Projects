@@ -15,10 +15,20 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(cors());
 
-app.post("api/projects/maria", (req, res) => {
-  console.log(req.body);
+app.post("/api/projects/pg", (req, res) => {
+  data = [...req.body];
+  db.insert(data, (err, response) => {
+    if (err) {
+      console.log(err);
+      res.status(412);
+      res.send(err);
+    } else {
+      res.status(200);
+      res.send(response);
+    }
+  });
 });
 
 app.listen(port, () => {
-  console.log(`Projects API With MARIADB listening on port: ${port}`);
+  console.log(`/api/projects/pg With attached PSQL listening on port: ${port}`);
 });

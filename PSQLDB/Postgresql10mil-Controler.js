@@ -1,11 +1,11 @@
 const options = require("./knexfile");
 const knex = require("knex")(options[process.env.DBOPTIONS || "development"]);
 
-const insertOne = data => {
+const insert = (data, cb) => {
   const {
     project_name,
     creator_name,
-    creator_Image,
+    creator_image,
     blurb,
     thumbnail,
     full_image,
@@ -15,39 +15,23 @@ const insertOne = data => {
   } = data;
 
   knex("projects")
-    .returning("id")
     .insert({
       project_name: project_name,
       creator_name: creator_name,
-      creator_Image: creator_Image,
+      creator_image: creator_image,
       blurb: blurb,
       thumbnail: thumbnail,
       full_image: full_image,
       location: location,
       catagory: catagory,
       description: description
-    });
+    })
+    .count("project_name")
+    .then(data => cb(data))
+    .catch(err => cb(err));
 };
 
-const insertPet = data => {
-  const { name, owner, species, sex, birth, death } = data;
-
-  knex("projects")
-    .returning("id")
-    .insert({
-      project_name: project_name,
-      creator_name: creator_name,
-      creator_Image: creator_Image,
-      blurb: blurb,
-      thumbnail: thumbnail,
-      full_image: full_image,
-      location: location,
-      catagory: catagory,
-      description: description
-    });
-};
-
-module.exports = { knex, insertOne };
+module.exports = { knex, insert };
 
 // table.increments("id").primary();
 // table.string("project_name").notNullable();

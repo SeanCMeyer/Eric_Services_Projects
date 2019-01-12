@@ -4,6 +4,9 @@
   "description": "Service that provides project details. ",
   "main": "index.js",
   "scripts": {
+    "PSQL-up": "knex migrate:latest --env development",
+    "PSQL-down": "knex migrate:rollback --env development",
+    "PSQL-seed": "knex seed:run --env development",
     "PSQL-server": "nodemon PSQLSERVER/server.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
@@ -45,7 +48,9 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^2.0.2",
+    "faker": "^4.1.0",
     "pm2": "^3.2.4",
+    "sqlite3": "^4.0.6",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.0",
     "webpack-cli": "^3.1.2"

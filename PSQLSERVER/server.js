@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const path = require("path");
 const cors = require("cors");
 const db = require("../PSQLDB/Postgresql10mil-Controler");
+const knex = require("knex");
 require("dotenv").config();
 const port = process.env.PORT || process.env.DEV_PORT || 3005;
 
@@ -17,16 +18,19 @@ app.use(cors());
 
 app.post("/api/projects/pg", (req, res) => {
   data = [...req.body];
-  db.insert(data, (err, response) => {
-    if (err) {
-      console.log(err);
+  db.insert(data)
+    .then(() => {
+      knex("projects")
+        .count("id")
+        .then(response => {
+          res.status(200);
+          res.send(response);
+        });
+    })
+    .catch(err => {
       res.status(412);
       res.send(err);
-    } else {
-      res.status(200);
-      res.send(response);
-    }
-  });
+    });
 });
 
 app.listen(port, () => {

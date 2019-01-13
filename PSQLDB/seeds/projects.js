@@ -1,8 +1,4 @@
 const faker = require("faker");
-const v8 = require("v8");
-
-v8.getHeapStatistics();
-v8.getHeapSpaceStatistics();
 
 const createFakeProject = () => ({
   project_name: faker.commerce.productName(),
@@ -18,8 +14,8 @@ const createFakeProject = () => ({
 
 let time1 = process.hrtime();
 let projectInserts = 10000000;
-let projectsEachBatch = projectInserts / 80;
-let count, time2, fakeProjects;
+let projectsEachBatch = projectInserts / 100;
+let count, fakeProjects;
 
 exports.seed = async function(knex) {
   await knex.schema.dropTableIfExists("projects");
@@ -38,8 +34,7 @@ exports.seed = async function(knex) {
       t.timestamp("created_at", 6).defaultTo(knex.fn.now(6));
     })
     .then(async () => {
-      for (let i = 0; i < 80; i++) {
-        time2 = process.hrtime();
+      for (let i = 0; i < 100; i++) {
         count = 0;
         fakeProjects = [];
 
@@ -49,26 +44,17 @@ exports.seed = async function(knex) {
         }
         await knex
           .batchInsert("projects", fakeProjects)
-          .then(() => {
-            let insideClock = process.hrtime(time2);
-            console.log(
-              `it took ${Math.floor(
-                insideClock[0] / 80
-              )} minutes and ${insideClock[0] %
-                80} seconds to complete batch ${i}!! Only ${80 - i} more to go!`
-            );
-          })
-          .catch(err => console.log(err));
+          .catch(err => console.error(err));
       }
     })
     .then(() => {
       let outsideClock = process.hrtime(time1);
       console.log(
         `It took ${Math.floor(
-          outsideClock[0] / 80
+          outsideClock[0] / 100
         )} minutes and ${outsideClock[0] %
-          80} seconds to seed ${80} batches of ${projectsEachBatch} files for a grand total of ${projectInserts}`
+          60} seconds to seed ${100} batches of ${projectsEachBatch} files for a grand total of ${projectInserts}`
       );
     })
-    .catch(err => console.log(err));
+    .catch(err => console.error(err));
 };

@@ -4,9 +4,12 @@
   "description": "Service that provides project details. ",
   "main": "index.js",
   "scripts": {
-    "PSQL-up": "knex migrate:latest --env development",
-    "PSQL-down": "knex migrate:rollback --env development",
-    "PSQL-seed": "knex seed:run --env development",
+    "fixit": "cross-env LIMIT=8192 increase-memory-limit",
+    "mup": "knex-migrate up --cwd ./PSQLDB/",
+    "mdown": "knex-migrate down --cwd ./PSQLDB/",
+    "mrollback": "knex-migrate rollback --cwd ./PSQLDB/",
+    "mredo": "knex-migrate redo --cwd ./PSQLDB/",
+    "seeder": "knex-migrate up -o 20190112134727_create_seeds_table.js --cwd ./PSQLDB/ --env seeds",
     "PSQL-server": "nodemon PSQLSERVER/server.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
@@ -41,6 +44,8 @@
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
+    "increase-memory-limit": "^1.0.3",
+    "cross-env": "^5.0.5",
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.2",
     "@babel/polyfill": "^7.0.0",
@@ -49,6 +54,7 @@
     "babel-loader": "^8.0.4",
     "css-loader": "^2.0.2",
     "faker": "^4.1.0",
+    "knex-migrate": "^1.7.0",
     "pm2": "^3.2.4",
     "sqlite3": "^4.0.6",
     "style-loader": "^0.23.1",

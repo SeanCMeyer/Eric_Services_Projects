@@ -14,7 +14,22 @@ module.exports = {
       tableName: "migrations"
     },
     seeds: {
-      directory: "./seeds"
+      directory: "./seeds",
+      tableName: "seeds"
+    }
+  },
+  seeds: {
+    client: "pg",
+    connection: {
+      host: "localhost",
+      port: 5433,
+      database: "better_jump_10mil",
+      user: "master",
+      password: "passofdoom"
+    },
+    migrations: {
+      directory: "./migrations",
+      tableName: "projects"
     }
   },
 

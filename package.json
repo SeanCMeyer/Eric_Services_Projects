@@ -4,7 +4,6 @@
   "description": "Service that provides project details. ",
   "main": "index.js",
   "scripts": {
-    "fixit": "cross-env LIMIT=8192 increase-memory-limit",
     "mup": "knex-migrate up --cwd ./PSQLDB/",
     "mdown": "knex-migrate down --cwd ./PSQLDB/",
     "mrollback": "knex-migrate rollback --cwd ./PSQLDB/",

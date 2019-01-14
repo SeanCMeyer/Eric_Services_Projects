@@ -14,7 +14,7 @@ const createFakeProject = () => ({
 
 let time1 = process.hrtime();
 let projectInserts = 10000000;
-let projectsEachBatch = projectInserts / 100;
+let projectsEachBatch = projectInserts / 20;
 let count, fakeProjects;
 
 exports.seed = async function(knex) {
@@ -31,10 +31,10 @@ exports.seed = async function(knex) {
       t.string("location").nullable();
       t.string("catagory").nullable();
       t.string("description").nullable();
-      t.timestamp("created_at", 6).defaultTo(knex.fn.now(6));
+      // t.timestamp("created_at", 6).defaultTo(knex.fn.now(6));
     })
     .then(async () => {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 20; i++) {
         count = 0;
         fakeProjects = [];
 
@@ -51,9 +51,9 @@ exports.seed = async function(knex) {
       let outsideClock = process.hrtime(time1);
       console.log(
         `It took ${Math.floor(
-          outsideClock[0] / 100
+          outsideClock[0] / 60
         )} minutes and ${outsideClock[0] %
-          60} seconds to seed ${100} batches of ${projectsEachBatch} files for a grand total of ${projectInserts}`
+          60} seconds to seed ${20} batches of ${projectsEachBatch} files for a grand total of ${projectInserts}`
       );
     })
     .catch(err => console.error(err));

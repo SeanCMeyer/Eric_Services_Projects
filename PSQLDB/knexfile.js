@@ -1,13 +1,27 @@
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/../../.env" });
+
+const {
+  DEV_DBURL,
+  DEV_DBPORT,
+  DEV_DBNAME,
+  DEV_DBUSER,
+  DEV_DBPASS,
+  DBURL,
+  DBPORT,
+  DBNAME,
+  DBUSER,
+  DBPASS
+} = process.env;
+
 module.exports = {
   development: {
     client: "pg",
     connection: {
-      host: "localhost",
-      port: 5433,
-      database: "better_jump_10mil",
-      user: "master",
-      password: "passofdoom"
+      host: DEV_DBURL,
+      port: DEV_DBPORT,
+      database: DEV_DBNAME,
+      user: DEV_DBUSER,
+      password: DEV_DBPASS
     },
     migrations: {
       directory: "./migrations",
@@ -21,11 +35,11 @@ module.exports = {
   seeds: {
     client: "pg",
     connection: {
-      host: "localhost",
-      port: 5433,
-      database: "better_jump_10mil",
-      user: "master",
-      password: "passofdoom"
+      host: DEV_DBURL,
+      port: DEV_DBPORT,
+      database: DEV_DBNAME,
+      user: DEV_DBUSER,
+      password: DEV_DBPASS
     },
     migrations: {
       directory: "./migrations",
@@ -36,11 +50,11 @@ module.exports = {
   staging: {
     client: "pg",
     connection: {
-      host: process.env.DEV_URL,
-      port: 5433,
-      database: process.env.DEV_DBNAME,
-      user: process.env.DEV_USERNAME,
-      password: process.env.DEV_PASS
+      host: DEV_DBURL,
+      port: DEV_DBPORT,
+      database: DEV_DBNAME,
+      user: DEV_DBUSER,
+      password: DEV_DBPASS
     },
     pool: {
       min: 2,
@@ -55,11 +69,11 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      host: process.env.DEV_URL,
-      port: 5433,
-      database: process.env.DEV_DBNAME,
-      user: process.env.DEV_USERNAME,
-      password: process.env.DEV_PASS
+      host: DBURL,
+      port: DBPORT,
+      database: DBNAME,
+      user: DBUSER,
+      password: DBPASS
     },
     pool: {
       min: 2,

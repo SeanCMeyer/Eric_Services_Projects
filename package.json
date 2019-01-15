@@ -43,15 +43,15 @@
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
-    "increase-memory-limit": "^1.0.3",
-    "cross-env": "^5.0.5",
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.2",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "cross-env": "^5.0.5",
     "css-loader": "^2.0.2",
+    "csv-writer": "^1.2.0",
     "faker": "^4.1.0",
     "knex-migrate": "^1.7.0",
     "pm2": "^3.2.4",

@@ -5,7 +5,8 @@ const path = require("path");
 const cors = require("cors");
 const db = require("../PSQLDB/Postgresql10mil-Controler");
 const knex = require("knex");
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/../../.env" });
+console.log("eh?");
 
 const port = process.env.PORT || process.env.DEV_PORT || 3005;
 

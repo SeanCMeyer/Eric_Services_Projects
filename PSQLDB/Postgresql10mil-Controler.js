@@ -8,7 +8,7 @@ const insert = async function(data, Promise) {
     .catch(err => err);
 };
 
-const countColumn = async function(data) {};
+// const countColumn = async function(data) {};
 
 module.exports = { knex, insert };
 

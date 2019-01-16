@@ -22,7 +22,7 @@ let batchNumber = 80;
 let batchlimit = fakeProjects / batchNumber;
 
 (async () => {
-  let fakeData;
+  let fakeData, projectCount, lastProject;
   let count = 0;
   let createFakeProject = () => ({
     project_name: faker.commerce.productName(),
@@ -42,8 +42,10 @@ let batchlimit = fakeProjects / batchNumber;
       fakeData.push(createFakeProject());
     }
     count++;
+    (projectCount = fakeData.length * count),
+      (lastProject = fakeData[fakeData.length - 1].catagory);
+    console.log(`FAKE-PROJECT NUMBER: ${projectCount} is ${lastProject}`);
     await csvWriter.writeRecords(fakeData).catch(err => console.error(err));
-    // returns a promise
   }
 
   let outsideClock = process.hrtime(time1);

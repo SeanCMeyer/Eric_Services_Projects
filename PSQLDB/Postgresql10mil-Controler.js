@@ -1,11 +1,13 @@
 const options = require("./knexfile");
 const knex = require("knex")(options[process.env.DBOPTIONS || "development"]);
 
-const insert = async function(data, Promise) {
-  await knex("projects")
-    .insert(data)
-    .then(() => response => response)
-    .catch(err => err);
+const insert = function(data, Promise) {
+  Promise.all([
+    knex("projects")
+      .batchInsert(data)
+      .then(() => response => response)
+      .catch(err => err)
+  ]);
 };
 
 // const countColumn = async function(data) {};

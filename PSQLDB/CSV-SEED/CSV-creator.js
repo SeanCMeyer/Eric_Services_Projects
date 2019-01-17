@@ -13,12 +13,12 @@ const csvWriter = createCsvWriter({
     { id: "catagory", title: "CATAGORY" },
     { id: "description", title: "DESCRIPTION" }
   ],
-  path: "./mockData.csv"
+  path: "./testData.csv"
 });
 
 let time1 = process.hrtime();
-let fakeProjects = 10000000;
-let batchNumber = 80;
+let fakeProjects = 100;
+let batchNumber = 1;
 let batchlimit = fakeProjects / batchNumber;
 
 (async () => {

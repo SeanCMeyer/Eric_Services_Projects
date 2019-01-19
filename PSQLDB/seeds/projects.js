@@ -20,14 +20,9 @@ let createFakeProject = () => ({
 
 exports.seed = async function(knex) {
   for (let i = 0; i < projectInserts; i++) {
-    // count = 0;
     fakeProjects = [];
 
     fakeProjects.push(createFakeProject());
-
-    // while (count < projectsEachBatch) {
-    // count++;
-    // }
   }
   await knex
     .batchInsert("projects", fakeProjects)

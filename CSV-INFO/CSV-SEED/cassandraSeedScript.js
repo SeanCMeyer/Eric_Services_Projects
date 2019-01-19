@@ -1,9 +1,12 @@
 const fs = require("fs");
 const readFile = fs.createReadStream("./../CSV-SEED/mockData.csv");
 const { Transform, Writable, Readable } = require("stream");
-const db = require("../Postgresql10mil-Controler");
+
+const db = require("dunnoYet");
 
 // CHUNK SIZE = 65536 bytes for mockData.csv
+
+let time1 = process.hrtime();
 
 readFile.setEncoding("UTF8");
 
@@ -14,7 +17,14 @@ readFile.on("data", chunk => {
 });
 
 readFile.on("close", () => {
-  console.log("HERE COMES THE DATA!!!!!!!!!!!");
+  let outsideClock = process.hrtime(time1);
+
+  console.log(
+    `It took ${Math.floor(outsideClock[0] / 60)} minutes and ${outsideClock[0] %
+      60} seconds to seed the Database`
+  );
+  console.log("That's all folks!");
+  process.exit(0);
 });
 
 readFile.on("error", err => {
@@ -26,9 +36,7 @@ function readStream(chunk) {
     objectMode: true,
     highWaterMark: 65536,
 
-    read(size) {
-      console.log("reading", size);
-    }
+    read() {}
   });
 
   stream.push(chunk);
@@ -39,7 +47,6 @@ function changeData() {
   return new Transform({
     objectMode: true,
     transform: (chunk, encoding, done) => {
-      console.log("Importing jibberish", chunk.length);
       let data = chunk
         .toString()
         .trim()
@@ -60,7 +67,6 @@ function changeData() {
           description: data[i][8]
         };
       }
-      console.log("Giving write stream JS object");
       done(null, data);
     }
   });
@@ -69,10 +75,14 @@ function changeData() {
 function dbWrite() {
   return new Writable({
     objectMode: true,
-    write: async (chunk, encoding, done) => {
-      console.log("inserting into DB boss!");
-      await db.insert(chunk, done);
+    write: (chunk, encoding, done) => {
+      db.insert(chunk, done);
       done();
     }
   });
 }
+
+// CREATE UNIQUE INDEX index_name
+// on table_name (column_name);
+
+//select * from projects

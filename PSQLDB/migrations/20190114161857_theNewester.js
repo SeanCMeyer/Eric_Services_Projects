@@ -1,7 +1,6 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
     knex.schema.createTable("projects", function(t) {
-      t.increments("id").primary();
       t.string("project_name").nullable();
       t.string("creator_name").nullable();
       t.string("creator_image").nullable();
@@ -11,7 +10,6 @@ exports.up = function(knex, Promise) {
       t.string("location").nullable();
       t.string("catagory").nullable();
       t.string("description").nullable();
-      t.timestamp("created_at", 6).defaultTo(knex.fn.now(6));
     })
   ]);
 };

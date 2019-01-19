@@ -18,8 +18,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return Promise.all([
-    knex.schema.dropTable("projects"),
-    knex.schema.dropTable("projects_lock")
-  ]);
+  return Promise.all([knex.schema.dropTable("projects")]);
 };

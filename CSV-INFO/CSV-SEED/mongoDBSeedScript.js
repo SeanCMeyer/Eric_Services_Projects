@@ -1,8 +1,7 @@
 const fs = require("fs");
-const readFile = fs.createReadStream("./../CSV-SEED/mockData.csv");
 const { Transform, Writable, Readable } = require("stream");
-
-const db = require("dunnoYet");
+const readFile = fs.createReadStream(__dirname + "/./../CSV-SEED/mockData.csv");
+const db = require(__dirname + "/../../MONGODB/MongoDBHandler");
 
 // CHUNK SIZE = 65536 bytes for mockData.csv
 
@@ -76,7 +75,7 @@ function dbWrite() {
   return new Writable({
     objectMode: true,
     write: (chunk, encoding, done) => {
-      db.insert(chunk, done);
+      db.insertion(chunk, done);
       done();
     }
   });

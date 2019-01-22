@@ -1,7 +1,7 @@
 const fs = require("fs");
-const readFile = fs.createReadStream("./../CSV-SEED/mockData.csv");
 const { Transform, Writable, Readable } = require("stream");
-const db = require("../Postgresql10mil-Controler");
+const readFile = fs.createReadStream(__dirname + "/./../CSV-SEED/mockData.csv");
+const db = require(__dirname + "/../../PSQLDB/Postgresql10mil-Controler.js");
 
 // CHUNK SIZE = 65536 bytes for mockData.csv
 let time1 = process.hrtime();
@@ -84,3 +84,5 @@ function dbWrite() {
 // on table_name (column_name);
 
 //select * from projects
+
+// /{project_name:\1, creator_name:\2, creator_image:\3, blurb:\4, thubnail:\5, full_image:\6, location:\7, catagory:\8, description\9}/;

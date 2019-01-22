@@ -8,12 +8,13 @@
     "mdown": "knex-migrate down --cwd ./PSQLDB/",
     "mrollback": "knex-migrate rollback --cwd ./PSQLDB/",
     "mredo": "knex-migrate redo --cwd ./PSQLDB/",
-    "seeder": "knex-migrate up -o 20190112134727_create_seeds_table.js --cwd ./PSQLDB/ --env seeds",
     "PSQL-server": "nodemon PSQLSERVER/server.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "restart": "pm2 startOrRestart ecosystem.config.js",
-    "deploy": "pm2 deploy ecosystem.config.js production"
+    "deploy": "pm2 deploy ecosystem.config.js production",
+    "seedPG": "node ./CSV-INFO/CSV-SEED/psqlSeedScript.js",
+    "seedMONGO": "node ./CSV-INFO/CSV-SEED/mongoDBSeedScript.js"
   },
   "repository": {
     "type": "git",
@@ -30,8 +31,6 @@
     "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
-    "cassandra": "^0.1.0",
-    "cassandra-driver": "^4.0.0",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",

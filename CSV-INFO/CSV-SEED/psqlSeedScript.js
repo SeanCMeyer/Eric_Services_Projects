@@ -15,6 +15,7 @@ readFile.on("data", chunk => {
 });
 
 readFile.on("close", () => {
+  db.addIDColumnToTable();
   let outsideClock = process.hrtime(time1);
 
   console.log(
@@ -56,13 +57,10 @@ function changeData() {
         data[i] = {
           project_name: data[i][0],
           creator_name: data[i][1],
-          creator_image: data[i][2],
-          blurb: data[i][3],
-          thumbnail: data[i][4],
-          full_image: data[i][5],
-          location: data[i][6],
-          catagory: data[i][7],
-          description: data[i][8]
+          blurb: data[i][2],
+          full_image: data[i][3],
+          location: data[i][4],
+          catagory: data[i][5]
         };
       }
       done(null, data);
@@ -79,10 +77,3 @@ function dbWrite() {
     }
   });
 }
-
-// CREATE UNIQUE INDEX index_name
-// on table_name (column_name);
-
-//select * from projects
-
-// /{project_name:\1, creator_name:\2, creator_image:\3, blurb:\4, thubnail:\5, full_image:\6, location:\7, catagory:\8, description\9}/;

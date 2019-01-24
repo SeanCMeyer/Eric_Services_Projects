@@ -8,7 +8,7 @@
     "mdown": "knex-migrate down --cwd ./PSQLDB/",
     "mrollback": "knex-migrate rollback --cwd ./PSQLDB/",
     "mredo": "knex-migrate redo --cwd ./PSQLDB/",
-    "PSQL-server": "nodemon PSQLSERVER/server.js",
+    "sean-server": "node SEAN-SERVER/server.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "restart": "pm2 startOrRestart ecosystem.config.js",

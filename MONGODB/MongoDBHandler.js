@@ -1,7 +1,10 @@
+require("dotenv").config({ path: __dirname + "/../../.env" });
+const { MG_URI, MG_PORT, MG_DB, MG_USERNAME, MG_PASSWORD } = process.env;
+
 mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb://localhost:27017/myapp",
+  `mongodb://${MG_URI}:${MG_PORT}/${MG_DB}`,
   { useNewUrlParser: true }
 );
 
@@ -17,15 +20,13 @@ mongoose.connection.on("disconnected", function() {
 });
 
 const ProjectSchema = mongoose.Schema({
+  id: { type: Number, unique: true },
   project_name: String,
   creator_name: String,
-  creator_image: String,
   blurb: String,
-  thumbnail: String,
   full_image: String,
   location: String,
-  catagory: String,
-  description: String
+  catagory: String
 });
 
 const Project = mongoose.model("Project", ProjectSchema);
@@ -33,4 +34,12 @@ const Project = mongoose.model("Project", ProjectSchema);
 const insertion = data =>
   Project.insertMany(data).catch(err => console.log(err));
 
-module.exports = { mongoose, insertion };
+const getProjectList = ID => {
+  max = eval(ID + "+ 5");
+  Project.find({})
+    .where("project_name")
+    .gte(ID)
+    .lte(max);
+};
+
+module.exports = { mongoose, insertion, getProjectList };

@@ -13,6 +13,7 @@
     "server-dev": "nodemon server/index.js",
     "restart": "pm2 startOrRestart ecosystem.config.js",
     "deploy": "pm2 deploy ecosystem.config.js production",
+    "create-csv": "./CSV-INFO/CSV-SEED/CSV-creator.js",
     "seedPG": "node ./CSV-INFO/CSV-SEED/psqlSeedScript.js",
     "seedMONGO": "node ./CSV-INFO/CSV-SEED/mongoDBSeedScript.js"
   },
@@ -55,6 +56,7 @@
     "csv-writer": "^1.2.0",
     "faker": "^4.1.0",
     "knex-migrate": "^1.7.0",
+    "mongoose": "^5.4.6",
     "pm2": "^3.2.9",
     "sqlite3": "^4.0.6",
     "style-loader": "^0.23.1",

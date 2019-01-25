@@ -12,7 +12,7 @@ module.exports = {
       key: "~/.ssh/JumpStream.pem",
       ref: "origin/master",
       repo: "https://github.com/SeanCMeyer/Eric_Services_Projects.git",
-      path: "/home/ubuntu/jumpstart",
+      path: "/home/ubuntu/",
       "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js"
     }
   }

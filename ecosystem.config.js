@@ -1,18 +1,18 @@
 module.exports = {
   apps: [
     {
-      name: "projectView",
-      script: "./server/index.js"
+      name: "JumpStart",
+      script: "./SEAN-SERVER/server.js"
     }
   ],
   deploy: {
     production: {
       user: "ubuntu",
-      host: "ec2-18-223-115-68.us-east-2.compute.amazonaws.com",
-      key: "~/.ssh/projectView.pem",
+      host: "ec2-54-204-215-131.compute-1.amazonaws.com",
+      key: "~/.ssh/JumpStream.pem",
       ref: "origin/master",
-      repo: "git@github.com:ericcchiu/Eric_Services_Projects.git",
-      path: "/home/ubuntu/projectView",
+      repo: "https://github.com/SeanCMeyer/Eric_Services_Projects.git",
+      path: "/home/ubuntu/jumpstart/Eric_Services_Projects.git",
       "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js"
     }
   }

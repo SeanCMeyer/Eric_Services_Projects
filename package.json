@@ -13,7 +13,7 @@
     "server-dev": "nodemon server/index.js",
     "restart": "pm2 startOrRestart ecosystem.config.js",
     "deploy": "pm2 deploy ecosystem.config.js production",
-    "create-csv": "./CSV-INFO/CSV-SEED/CSV-creator.js",
+    "create-csv": "node ./CSV-INFO/CSV-SEED/CSV-creator.js",
     "seedPG": "node ./CSV-INFO/CSV-SEED/psqlSeedScript.js",
     "seedMONGO": "node ./CSV-INFO/CSV-SEED/mongoDBSeedScript.js"
   },

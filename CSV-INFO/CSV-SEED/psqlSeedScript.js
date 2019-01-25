@@ -1,6 +1,8 @@
 const fs = require("fs");
 const { Transform, Writable, Readable } = require("stream");
-const readFile = fs.createReadStream(__dirname + "/./../CSV-SEED/mockData.csv");
+const readFile = fs.createReadStream(
+  __dirname + "/./../../CSV-SEED/mockData.csv"
+);
 const db = require(__dirname + "/../../PSQLDB/Postgresql10mil-Controler.js");
 
 // CHUNK SIZE = 65536 bytes for mockData.csv

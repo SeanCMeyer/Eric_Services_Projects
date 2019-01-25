@@ -19,27 +19,28 @@ mongoose.connection.on("disconnected", function() {
   });
 });
 
-const ProjectSchema = mongoose.Schema({
-  id: { type: Number, unique: true },
-  project_name: String,
-  creator_name: String,
-  blurb: String,
-  full_image: String,
-  location: String,
-  catagory: String
-});
+const ProjectSchema = mongoose.Schema(
+  {
+    id: { type: Number, unique: true },
+    project_name: String,
+    creator_name: String,
+    blurb: String,
+    full_image: String,
+    location: String,
+    catagory: String
+  },
+  { collection: "projects" }
+);
 
 const Project = mongoose.model("Project", ProjectSchema);
 
 const insertion = data =>
   Project.insertMany(data).catch(err => console.log(err));
 
-const getProjectList = ID => {
-  max = eval(ID + "+ 5");
-  Project.find({})
-    .where("project_name")
-    .gte(ID)
-    .lte(max);
+const getProjectList = (ID, cb) => {
+  Project.find({ creator_name: "Dexter" })
+    .limit(5)
+    .exec(cb);
 };
 
 module.exports = { mongoose, insertion, getProjectList };

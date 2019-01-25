@@ -35,9 +35,15 @@ app.get("/api/projects/mongo/:project_id", (req, res) => {
     res.send("ERROR: request must contain a project ID");
   } else {
     const project_id = req.params.project_id;
-    mongodb.getProjectList(project_id).then(response => {
-      res.status(200);
-      res.send(response);
+    mongodb.getProjectList(project_id, (err, response) => {
+      console.log("working on it");
+      if (err) {
+        res.status(412);
+        res.send(err);
+      } else {
+        res.status(200);
+        res.send(response);
+      }
     });
   }
 });
